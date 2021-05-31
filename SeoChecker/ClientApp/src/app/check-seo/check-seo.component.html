@@ -1,0 +1,42 @@
+<h1>SEO Performance Checker</h1>
+
+<div class="container">
+  <form [formGroup]="seoCheckerForm" (ngSubmit)="onSubmit()">
+    <span style="font-size: 18px">{{ companyName }}</span>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Search Engine</mat-label>
+        <mat-select required formControlName="searchEngine">
+          <mat-option *ngFor="let searchEngine of searchEngineOptions" [value]="searchEngine">
+            {{ searchEngine | titlecase }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Keywords</mat-label>
+        <input matInput type="text" formControlName="keywords" required />
+        <mat-error *ngIf="keywords.errors?.required">Keywords cannot be empty</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!seoCheckerForm.valid">Submit</button>
+      <div *ngIf="errorMessage" style="color: red">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </form>
+
+  <div *ngIf="result !== undefined" style="padding-top: 25px">
+    <mat-divider></mat-divider>
+    <ng-container *ngIf="result.ranks.length > 0 && result.ranks[0] !== '0'">
+      <b style="color: green">Congratulations!</b> The company name of <b>{{ companyName }}</b> is ranked <b>{{ result.ranks }}</b>
+      in the <b>{{ result.searchEngine | titlecase }}</b> search result list when searching for the keywords of <b>{{ result.keywords }}</b>.
+    </ng-container>
+    <ng-container *ngIf="result.ranks.length === 1 && result.ranks[0] === '0'">
+      <b style="color: red">Sorry!</b> The company name of <b>{{ companyName }}</b> cannot be found in the <b>{{ result.searchEngine | titlecase }}</b>
+      search result list when searching for the keywords of <b>{{ result.keywords }}</b>.
+    </ng-container>
+  </div>
+</div>
