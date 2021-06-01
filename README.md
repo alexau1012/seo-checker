@@ -1,19 +1,73 @@
-# seo-checker
+# SEO Checker
 
-The purpose of this application is to provide a simple interface to check how a company's SEO is performing in different search engines by identifying their search result ranks. 
+The purpose of SEO Checker is to provide a simple to use interface to determine how a company's SEO is performing in different search engines by identifying their search result ranks.
+
+The current MVP of SEO Checker has the following core features:
+- Support Google and Bing search engines
+- Check SEO performance via REST API
+- Simple and robust user interface
+
+<application example image>
+  
+## Application Architecture
+  
+
+
+## User Story
+  
+
+
+## Technology Stack
+
+- Frontend: TypeScript, Angular and Angular Material
+- Backend: C# and .NET Core
+
+## Run the Project
+  
+### Requirements
+
+- Visual Studio 2019 Community <version>
+- .NET Core 3.1 or higher
+- Node.js and npm
+  
+1. Clone this repository locally :
+  
+``` bash
+git clone https://github.com/alexau1012/seo-checker.git
+```
+  
+2. Open project solution file via Visual Studio
+
+3. Run ```npm install``` in the ClientApp folder to install app dependencies
+
+4. Build and run the application
+  
+5. Browse to http://localhost:<port>
+  
+## Add more Search Engines
+  
+
+
+## Current Limitations
+
+
 
 ### Performance
 
-The current implementation retrieves the company's ranks by making a search using the search engine's URL and looking through the search result links. This is slow as the response contains a lot of unnecessary information, which results in longer response time. To improve performance for example in Google, the Custom Search JSON API can be used to retrieve only the required information, making the response time less.
+
 
 ### Availability
 
-The search result ranks are obtained by making a request to the search engine URL each time. This could cause 429 Too Many Requests errors, as search engines put a limit on the number of requests that a user can make within a certain time. 
-
-Some strategies to improve availability:
-- Caching the results
-- The application can be deployed across multiple regions
+  
 
 ### Reliability
 
-The current solution is not very reliable due to the limit placed on the number of searches in a certain time enforced by the search engine. For the application to be more reliable, it needs to be using the search engine's REST APIs.
+
+
+## Future Works
+  
+### Move to a Serverless Architecture
+  
+  
+
+### E2e Testing
