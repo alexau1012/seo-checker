@@ -64,7 +64,7 @@ export const environment = {
 Most search engines are not supported as the application requires the request url to follow a particular format.
 
 #### Solution
-1. Identify the correct format of each search engine's search URL and implement them to the backend server logic so that the correct URL can be constructred with the provided search engine and keywords.
+1. Identify the correct format of each search engine's search URL and implement them to the backend server logic so that the correct URL can be constructed with the provided search engine and keywords.
 
 ### Performance
 Slow response time as the retrieval of search results contain a lot of unnecessary information.
