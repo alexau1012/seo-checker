@@ -28,7 +28,7 @@
     </div>
   </form>
 
-  <div *ngIf="result !== undefined" style="padding-top: 25px">
+  <div *ngIf="result != null" style="padding-top: 25px">
     <mat-divider></mat-divider>
     <ng-container *ngIf="result.ranks.length > 0 && result.ranks[0] !== '0'">
       <b style="color: green">Congratulations!</b> The company name of <b>{{ companyName }}</b> is ranked <b>{{ result.ranks }}</b>

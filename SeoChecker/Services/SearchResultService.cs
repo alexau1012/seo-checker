@@ -23,16 +23,16 @@ namespace SeoChecker.Services
             MatchCollection searchResultLinks = GetSearchResultLinksCollection(uri, searchResultDom);
             
             // Find the search reult ranks of the company using the links
-            var companySearchReultRanks = GetSearchResultRankList(searchResultLinks, CompanyName);
+            var companySearchResultRanks = GetSearchResultRankList(searchResultLinks, CompanyName);
 
             // Set the rank list to 0 if the search result does not contain the company name
-            if (companySearchReultRanks.Count == 0)
+            if (companySearchResultRanks.Count == 0)
             {
-                companySearchReultRanks = new List<int>() { 0 };
+                companySearchResultRanks = new List<int>() { 0 };
             }
 
             // Return the ranks list as a comma separated string
-            return string.Join(", ", companySearchReultRanks);
+            return string.Join(", ", companySearchResultRanks);
         }
 
         private string GetUriResponseAsText(string uri)
@@ -40,6 +40,9 @@ namespace SeoChecker.Services
             string responseText;
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
+
+            System.Threading.Thread.Sleep(700); // This is needed to ensure the response has fully loaded
+
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
             using (var reader = new System.IO.StreamReader(response.GetResponseStream(), Encoding.ASCII))

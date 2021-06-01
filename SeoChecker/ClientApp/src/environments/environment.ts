@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  seoCheckerApi: 'searchresultrank'
+  seoCheckerApi: 'searchresultrank',
+  supportedSearchEngines: ['google', 'bing']
 };
 
 /*
